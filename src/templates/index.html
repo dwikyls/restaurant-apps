@@ -8,48 +8,39 @@
 </head>
 
 <body id="main">
+    <a href="#maincontent" class="skip-link">Menuju ke konten</a>
     <header>
+        <div class="nav-header">
+            <a href="#" id="header_menu" aria-label="tombol sidebar">☰</a>
+            <a href="#" id="brand">Foodations</a>
+        </div>
         <nav id="drawer">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="#">Favorite</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="https://github.com/dwikyls">About Us</a></li>
             </ul>
         </nav>
-        <a id="header_menu" href="#">☰</a>
-        <a href="#" id="brand">
-            <h1>Hunger Apps</h1>
-        </a>
     </header>
     <main>
-        <div class="banner">
-            <img src="./images/heros/hero-image_4.jpg" alt="">
+        <div class="hero">
+            <div class="hero-capt">
+                <h1 tabindex="0">Mau makan dimana hari ini?</h1>
+                <p tabindex="0">Foodations siap menemani kamu makan dimana aja</p>
+            </div>
+            <div class="hero-img">
+                <img src="./images/heros/hero-image.jpg" alt="hunger apps hero image">
+            </div>
         </div>
-        <article id="Home" style="padding: 0px 20px 0px 20px; border: 1px solid black;">
-            <h2 style="text-align: center;">Explore Restaurant</h2>
+        <article id="maincontent">
+            <h2 tabindex="0">Explore Restaurant</h2>
             <section class="rest-list">
-                <div class="card" style="margin: 20px; border-radius: 5px; background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); overflow: hidden;">
-                    <div class="card-header">
-                        <img width="100%" src="./images/heros/hero-image_1.jpg" alt="">
-                    </div>
-                    <div class="card-body" style="padding: 20px;">
-                        <b>Rating: 4.5</b>
-                        <h3>Lorem Ipsum Dolor</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa sed quo eos delectus exercitationem dolorum doloremque tenetur ipsam! Fuga veritatis sit sed molestias eligendi voluptatibus totam, tempore error natus quibusdam!</p>
-                    </div>
-                </div>
-                <div class="card" style="margin: 20px; border-radius: 5px; background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);">
-                    <div class="card-header">
-                        <img width="100%" src="./images/heros/hero-image_2.jpg" alt="">
-                    </div>
-                    <div class="card-body" style="padding: 20px;">
-                        <b>Rating: 4.5</b>
-                        <h3>Lorem Ipsum Dolor</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa sed quo eos delectus exercitationem dolorum doloremque tenetur ipsam! Fuga veritatis sit sed molestias eligendi voluptatibus totam, tempore error natus quibusdam!</p>
-                    </div>
-                </div>
+
             </section>
         </article>
+        <footer>
+            <center><b tabindex="0">Copyright © 2021 - Foodations</b></center>
+        </footer>
     </main>
 </body>
 
