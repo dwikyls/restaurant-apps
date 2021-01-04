@@ -1,5 +1,19 @@
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
+    animation: transitionIn 0.4s;
+}
+
+@keyframes transitionIn{
+    from{
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+
+    to{
+        opacity: 1;
+        transform: rotateX(0);
+    }
 }
 
 body {
@@ -15,70 +29,151 @@ main {
     width: 100%;
 }
 
+/* SKIP TO CONTENT */
+
+.skip-link {
+    text-decoration: none;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background-color: teal;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+ }
+  
+ .skip-link:focus {
+    top: 0;
+ }
+
+/* HEADER */
+
 header {
-    padding: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    background-color: teal;
 }
 
-#brand {
+.nav-header{
+    padding: 30px;
+}
+
+#header_menu {
+    font-weight: bold;
+    color: white;
     text-decoration: none;
 }
 
-#drawer.open {
-    background-color: moccasin;
-    transition: transform 0.3s ease;
-    display: inline;
-    transform: translate(0, 0);
+#brand {
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin-left: 35%;
 }
+
+/* DRAWER */
 
 #drawer {
     transition: transform 0.3s ease;
     position: absolute;
-    transform: translate(-250px, 0);
+    transform: translate(-150px, 0);
 }
 
-#header_menu {
-    text-decoration: none;
+#drawer.open {
+    position: fixed;
+    z-index: 2;
+    height: 100%;
+    width: 50%;
+    background-color: teal;
+    display: block;
+    transform: translate(0, 0);
+}
+
+ul{
+    margin: 30px;
 }
 
 ul li {
-    padding: 5px;
+    padding: 20px;
     display: block;
 }
 
 ul li a {
     font-weight: bold;
-    color: midnightblue;
+    color: white;
     text-decoration: none;
 }
 
-.banner img {
+ul li a:hover {
+    opacity: 0.8;
+}
+
+/* HERO */
+
+.hero img {
     width: 100%;
 }
 
-@media screen and (min-width: 600px) {
-    header {
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-    }
-    #brand {
-        margin: auto;
-        text-align: center;
-        grid-column-start: 1;
-        grid-column-end: 2;
-        grid-row-start: 1;
-    }
-    #drawer {
-        text-align: center;
-        position: relative;
-        grid-column-start: 2;
-        grid-column-end: 3;
-        transform: translate(0, 0);
-    }
-    #header_menu {
-        text-decoration: none;
-        display: none;
-    }
-    ul li {
-        display: inline;
-    }
+.hero-capt{
+    position: absolute; 
+    margin-top: 20%; 
+    margin-left: 5%; 
+    z-index: 1;
+}
+
+.hero-capt h1, .hero-capt p{
+    color: white; 
+    text-align: center;
+}
+
+.hero-img img{
+    filter: blur(6px); 
+    z-index: -1;
+}
+
+/* RESTAURANT LIST */
+
+.rest-list{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+#maincontent h2{
+    margin: 50px;
+    text-align: center;
+}
+
+.card{
+    margin: 20px;
+    border-radius: 5px; 
+    background-color: white; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    overflow: hidden;
+}
+
+.card-body{
+    text-align: justify;
+    padding: 20px;
+}
+
+.city-tag{
+    position: absolute; 
+    padding: 20px; 
+    margin-top: 20px; 
+    background-color: teal;
+    color: white; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* FOOTER */
+
+footer{
+    background-color: teal;
+}
+
+footer center{
+    padding: 20px;
+}
+
+footer center b{
+    color: white;
 }
