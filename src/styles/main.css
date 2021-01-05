@@ -58,21 +58,24 @@ header {
 }
 
 #header_menu {
+    padding: 20px;
     font-weight: bold;
     color: white;
     text-decoration: none;
 }
 
 #brand {
+    padding: 20px;
     font-weight: bold;
     color: white;
     text-decoration: none;
-    margin-left: 35%;
+    margin-left: 25%;
 }
 
 /* DRAWER */
 
 #drawer {
+    display: none;
     transition: transform 0.3s ease;
     position: absolute;
     transform: translate(-150px, 0);
@@ -88,12 +91,9 @@ header {
     transform: translate(0, 0);
 }
 
-ul{
-    margin: 30px;
-}
-
 ul li {
-    padding: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     display: block;
 }
 
@@ -101,6 +101,7 @@ ul li a {
     font-weight: bold;
     color: white;
     text-decoration: none;
+    padding: 20px;
 }
 
 ul li a:hover {
@@ -132,14 +133,18 @@ ul li a:hover {
 
 /* RESTAURANT LIST */
 
-.rest-list{
-    display: grid;
-    grid-template-columns: 1fr;
+#maincontent{
+    padding-top: 50px;
 }
 
 #maincontent h2{
     margin: 50px;
     text-align: center;
+}
+
+.rest-list{
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .card{

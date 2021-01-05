@@ -18,6 +18,7 @@
     }
 
     #drawer {
+        display: block;
         text-align: center;
         position: relative;
         grid-column-start: 2;
