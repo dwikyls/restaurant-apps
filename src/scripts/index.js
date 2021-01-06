@@ -26,15 +26,15 @@ restData.forEach(e => {
     restList.innerHTML += `
         <div class="card">
             <div class="card-header">
-                <div class="city-tag">
-                    <b tabindex="0">Rating: ${e.rating}</b>
+                <div class="rating-tag">
+                    <p tabindex="0">Rating: ${e.rating}</p>
                 </div>
                 <img width="100%" src="${e.pictureId}" alt="gambar restaurant ${e.name}">
             </div>
             <div class="card-body">
-                <b tabindex="0">Lokasi: ${e.city}</b>
                 <h3 tabindex="0">${e.name}</h3>
-                <p tabindex="0">${e.description}</p>
+                <p tabindex="0">Lokasi: ${e.city}</p>
+                <p tabindex="0" class="discover-item__description">${e.description}</p>
             </div>
         </div>
     `
