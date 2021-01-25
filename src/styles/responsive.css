@@ -93,7 +93,7 @@
       }
     
       .add-review{
-        max-height: 70%;
+        max-height: 300px;
         grid-column-start: 2; 
         grid-column-end: 3;
       }

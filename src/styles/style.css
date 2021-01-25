@@ -19,7 +19,7 @@
     position: absolute;
     top: -40px;
     left: 0;
-    background-color: salmon;
+    background-color: black;
     color: white;
     padding: 8px;
     z-index: 100;
@@ -35,7 +35,7 @@
    
   .app-bar {
     padding: 8px 16px;
-    background-color: salmon;
+    background-color: black;
     display: grid;
     grid-template-columns: auto 1fr auto;
     gap: 10px;
@@ -78,7 +78,7 @@
     width: 150px;
     transition: all 0.3s;
     padding: 8px;
-    background-color: salmon;
+    background-color: black;
     overflow: hidden;
   }
    
@@ -184,8 +184,8 @@
     top: 0px;
     left: 0px;
     display: inline-block;
-    background-color: yellow;
-    color: black;
+    background-color: black;
+    color: white;
   }
 
   .restaurant-item .restaurant-item__header .restaurant-item__header__address {
@@ -197,7 +197,7 @@
     left: 15%;
     right: 15%;
     display: inline-block;
-    background-color: salmon;
+    background-color: black;
     color: white;
   }
    
@@ -215,15 +215,18 @@
    
   .restaurant-item .restaurant-item__content h3 a {
     padding: 10px 10px 10px 0px;
-    color: #db0000;
+    color: black;
     text-decoration: none;
   }
    
   .restaurant-item .restaurant-item__content p {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.5em;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 4; /* number of lines to show */
+    -webkit-line-clamp: 2; /* number of lines to show */
     -webkit-box-orient: vertical;
   }
    
@@ -286,12 +289,19 @@
     border: 1px solid #e1e4e8;
   }
 
-  .search-button,
+  .search-button{
+    padding: 15px; 
+    border-radius: 5px; 
+    border: none; 
+    background-color: black; 
+    color: white;
+  }
+
   .add-review button{
     padding: 15px; 
     border-radius: 5px; 
     border: none; 
-    background-color: #1877f2; 
+    background-color: black; 
     color: white;
   }
 
@@ -303,7 +313,7 @@
 
   .category{
     display: inline; 
-    background-color: salmon; 
+    background-color: black; 
     color: white; 
     padding: 3px; 
     border-radius: 5px; 
@@ -340,7 +350,7 @@
    
   footer p {
     text-align: center;
-    color: #aaaaaa;
+    color: black;
   }
    
   footer p a {

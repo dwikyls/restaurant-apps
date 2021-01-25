@@ -4,7 +4,12 @@ import CacheHelper from './utils/cache-helper';
 const { assets } = global.serviceWorkerOption;
 
 self.addEventListener('install', (event) => {
-    event.waitUntil(CacheHelper.cachingAppShell([...assets, './']));
+    event.waitUntil(CacheHelper.cachingAppShell([
+        ...assets,
+        './',
+        'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap',
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
+    ]));
 });
 
 self.addEventListener('activate', (event) => {

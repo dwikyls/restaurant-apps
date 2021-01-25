@@ -6,8 +6,8 @@ const NowPlaying = {
     return `
       <div class="hero">
           <div class="hero-capt">
-              <h1 tabindex="0">Mau makan dimana hari ini?</h1>
-              <p tabindex="0">Foodations siap menemani kamu makan dimana aja</p>
+              <h1>Mau makan dimana hari ini?</h1>
+              <p>Foodations siap menemani kamu makan dimana aja</p>
           </div>
           <div class="hero-img">
               <img src="./images/heros/hero-image.jpg" alt="hunger apps hero image">
@@ -16,7 +16,7 @@ const NowPlaying = {
       <div class="content">
         <h2 class="content__heading">Explore Restaurant</h2>
         <div class="search-wrapper">
-          <input class="search-input" placeholder="Search Restaurant or Category">
+          <input class="search-input" placeholder="Search Restaurant or Category" aria-label="search-input">
           <button class="search-button">Search</button>
         </div>
         <div id="restaurants" class="restaurants">

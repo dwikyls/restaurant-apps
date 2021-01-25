@@ -7,19 +7,20 @@
     <meta name="description" content="brings your food closer">
     <meta name="theme-color" content="#ff8629" />
     <link rel="icon" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
-    <script src="https://use.fontawesome.com/b070c8f1df.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" crossorigin="anonymous" as="style" onload="this.onload=null;this.rel='stylesheet'"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" crossorigin="anonymous"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
     <title>Foodations</title>
 </head>
 
 <body>
-    <a href="#maincontent" class="skip-link">Menuju ke konten</a>
+    <a href="#restaurants" class="skip-link" tabindex="0">Menuju ke konten</a>
     <header class="app-bar">
         <div class="app-bar__menu">
-            <button id="hamburgerButton">☰</button>
+            <button id="hamburgerButton" aria-label="navigation-menu">☰</button>
         </div>
         <div class="app-bar__brand">
             <h1><img src="./favicon.png" alt="" width="30px"> Foodations</h1>
