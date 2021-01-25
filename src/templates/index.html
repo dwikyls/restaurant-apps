@@ -3,46 +3,43 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="website katalog restaurant">
-    <meta name="viewport" content="width=device-width">
-    <title>Foodations - Brings your food closer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="brings your food closer">
+    <meta name="theme-color" content="#ff8629" />
+    <link rel="icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+    <script src="https://use.fontawesome.com/b070c8f1df.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Foodations</title>
 </head>
 
-<body id="main">
+<body>
     <a href="#maincontent" class="skip-link">Menuju ke konten</a>
-    <header>
-        <div class="nav-header">
-            <a href="#" id="header_menu" aria-label="tombol sidebar">☰</a>
-            <a href="#" id="brand">Foodations</a>
+    <header class="app-bar">
+        <div class="app-bar__menu">
+            <button id="hamburgerButton">☰</button>
         </div>
-        <nav id="drawer">
+        <div class="app-bar__brand">
+            <h1><img src="./favicon.png" alt="" width="30px"> Foodations</h1>
+        </div>
+        <nav id="navigationDrawer" class="app-bar__navigation">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="#">Favorite</a></li>
+                <li><a href="#/home">Home</a></li>
+                <li><a href="#/favorite">Favorite</a></li>
                 <li><a href="https://github.com/dwikyls">About Us</a></li>
             </ul>
         </nav>
     </header>
-    <div class="hero">
-        <div class="hero-capt">
-            <h1 tabindex="0">Mau makan dimana hari ini?</h1>
-            <p tabindex="0">Foodations siap menemani kamu makan dimana aja</p>
-        </div>
-        <div class="hero-img">
-            <img src="./images/heros/hero-image.jpg" alt="hunger apps hero image">
-        </div>
+    <div id="loader-wrapper">
+        <div id="loader"></div>
     </div>
-    <main>
-        <article id="maincontent">
-            <h2 tabindex="0">Explore Restaurant</h2>
-            <section class="rest-list">
-
-            </section>
-        </article>
-        <footer>
-            <p>Copyright © 2021 - Foodations</p>
-        </footer>
-    </main>
+    <main id="mainContent"></main>
+    <footer>
+        <p>All data obtained from <a href="https://dicoding.com" target="_blank" rel="noreferrer">Dicoding Indonesia</a>
+        </p>
+    </footer>
 </body>
 
 </html>

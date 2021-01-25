@@ -1,41 +1,23 @@
 import 'regenerator-runtime';
-import '../styles/main.css';
-import '../styles/responsive.css'
-import data from '../DATA.json'
+import '../styles/style.css';
+import '../styles/responsive.css';
+import App from './views/app';
+import swRegister from './utils/sw-register';
+import WebSocketInitiator from './utils/websocket-initiator';
+import CONFIG from './globals/config';
 
-//SIDEBAR
-const sideBar = document.getElementById('header_menu')
-const drawer = document.getElementById('drawer')
-const main = document.getElementById('main')
-
-sideBar.addEventListener("click", event => {
-    drawer.classList.toggle("open");
-    event.stopPropagation();
+const app = new App({
+    button: document.querySelector('#hamburgerButton'),
+    drawer: document.querySelector('#navigationDrawer'),
+    content: document.querySelector('#mainContent'),
 });
 
-main.addEventListener("click", event => {
-    drawer.classList.remove("open");
-    event.stopPropagation();
-})
+window.addEventListener('hashchange', () => {
+    app.renderPage();
+});
 
-//RESTAURAT ITEM LIST
-const restList = document.querySelector('.rest-list')
-let restData = data.restaurants
-
-restData.forEach(e => {
-    restList.innerHTML += `
-        <div class="card">
-            <div class="card-header">
-                <div class="rating-tag">
-                    <p tabindex="0">Rating: ${e.rating}</p>
-                </div>
-                <img width="100%" src="${e.pictureId}" alt="gambar restaurant ${e.name}">
-            </div>
-            <div class="card-body">
-                <h3 tabindex="0">${e.name}</h3>
-                <p tabindex="0">Lokasi: ${e.city}</p>
-                <p tabindex="0" class="discover-item__description">${e.description}</p>
-            </div>
-        </div>
-    `
-})
+window.addEventListener('load', () => {
+    app.renderPage();
+    swRegister();
+    WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER);
+});
