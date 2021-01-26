@@ -1,9 +1,9 @@
 import RestaurantDbSource from '../../data/restaurantdb-source';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 
-const NowPlaying = {
-  async render() {
-    return `
+const Home = {
+    async render() {
+        return `
       <div class="hero">
           <div class="hero-capt">
               <h1>Mau makan dimana hari ini?</h1>
@@ -20,29 +20,31 @@ const NowPlaying = {
           <button class="search-button">Search</button>
         </div>
         <div id="restaurants" class="restaurants">
- 
+          <div id="loader-wrapper">
+            <div id="loader"></div>
+          </div>
         </div>
       </div>
     `;
-  },
+    },
 
-  async afterRender() {
-    const restaurants = await RestaurantDbSource.listRestaurants();
-    const restaurantsContainer = document.querySelector('#restaurants');
-    const searchButton = document.querySelector('.search-button');
-    restaurants.forEach((restaurant) => {
-      restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
-    });
+    async afterRender() {
+        const restaurants = await RestaurantDbSource.listRestaurants();
+        const restaurantsContainer = document.querySelector('#restaurants');
+        const searchButton = document.querySelector('.search-button');
+        restaurants.forEach((restaurant) => {
+            restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+        });
 
-    searchButton.addEventListener('click', async () => {
-      restaurantsContainer.innerHTML = '';
-      const searchInput = await document.querySelector('.search-input').value;
-      const searchRestaurant = await RestaurantDbSource.searchRestaurant(searchInput);
-      searchRestaurant.forEach((restaurant) => {
-        restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
-      });
-    });
-  },
+        searchButton.addEventListener('click', async() => {
+            restaurantsContainer.innerHTML = '';
+            const searchInput = await document.querySelector('.search-input').value;
+            const searchRestaurant = await RestaurantDbSource.searchRestaurant(searchInput);
+            searchRestaurant.forEach((restaurant) => {
+                restaurantsContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+            });
+        });
+    },
 };
 
-export default NowPlaying;
+export default Home;

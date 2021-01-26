@@ -7,13 +7,17 @@ const Detail = {
     async render() {
         return `
             <a href="#/home" class="back-button"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</a>
-            <div id="restaurant" class="restaurant" style="margin-top: 10px;"></div>
+            <div id="restaurant" class="restaurant" style="margin-top: 10px;">
+                <div id="loader-wrapper">
+                    <div id="loader"></div>
+                </div>
+            </div>
             <div class="restaurant">
                 <div class="user-review"></div>
                 <div class="add-review">
                     <label for="reviewer-name"><i class="fa fa-user" aria-hidden="true"></i> Name</label>
                     <input class="reviewer-name" name="reviewer-name" type="text" placeholder="Name">
-                    <label for="reviewer-name"><i class="fa fa-pencil" aria-hidden="true"></i> Feedback</label>
+                    <label for="reviewer-text"><i class="fa fa-pencil" aria-hidden="true"></i> Feedback</label>
                     <textarea class="reviewer-text" name="reviewer-text" cols="700" rows="10" placeholder="Your Review"></textarea>
                     <button class="review-button">Add review <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
                 </div>
@@ -42,11 +46,16 @@ const Detail = {
                 city: restaurant.city,
             },
         });
-        reviewButton.addEventListener('click', async () => {
+        reviewButton.addEventListener('click', async() => {
             const restaurantId = url.id;
             const reviewerName = document.querySelector('.reviewer-name').value;
             const reviewValue = document.querySelector('.reviewer-text').value;
-            await RestaurantDbSource.addReview(restaurantId, reviewerName, reviewValue);
+
+            if (reviewerName == '' || reviewValue == '') {
+                return alert('data tidak lengkap');
+            } else {
+                return await RestaurantDbSource.addReview(restaurantId, reviewerName, reviewValue);
+            }
         });
     },
 };

@@ -25,16 +25,22 @@ class RestaurantDbSource {
             name: reviewerName,
             review: reviewValue,
         };
-        const response = await fetch(API_ENDPOINT.REVIEW, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Auth-Token': '12345',
-            },
-            body: JSON.stringify(data),
-        });
-        const responseJson = await response.json();
-        return responseJson.restaurant;
+        try {
+            const response = await fetch(API_ENDPOINT.REVIEW, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Auth-Token': '12345',
+                },
+                body: JSON.stringify(data),
+            });
+            const responseJson = await response.json();
+            alert('berhasil komentar ');
+            location.reload();
+            return responseJson.restaurant;
+        } catch (error) {
+            alert('data kurang tepat');
+        };
     }
 }
 

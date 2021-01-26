@@ -1,25 +1,27 @@
 import TheMovieDbSource from '../../data/restaurantdb-source';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 
-const Upcoming = {
-  async render() {
-    return `
+const About = {
+    async render() {
+        return `
       <div class="content">
-        <h2 class="content__heading">Upcoming in Cinema</h2>
-        <div id="movies" class="movies">
- 
+        <h2 class="content__heading">About in Cinema</h2>
+        <div id="restaurants" class="restaurants">
+          <div id="loader-wrapper">
+            <div id="loader"></div>
+          </div>
         </div>
       </div>
     `;
-  },
+    },
 
-  async afterRender() {
-    const movies = await TheMovieDbSource.upcomingMovies();
-    const moviesContainer = document.querySelector('#movies');
-    movies.forEach((movie) => {
-      moviesContainer.innerHTML += createRestaurantItemTemplate(movie);
-    });
-  },
+    async afterRender() {
+        const restaurants = await TheMovieDbSource.AboutRestaurants();
+        const restaurantsContainer = document.querySelector('#restaurants');
+        restaurants.forEach((movie) => {
+            restaurantsContainer.innerHTML += createRestaurantItemTemplate(movie);
+        });
+    },
 };
 
-export default Upcoming;
+export default About;
