@@ -12,6 +12,11 @@ const UrlParser = {
 
     _urlSplitter(url) {
         const urlsSplits = url.split('/');
+        if (urlsSplits[1] === 'favorite' || urlsSplits[1] === 'detail') {
+            document.querySelector('.hero').classList.add('display-none');
+        } else {
+            document.querySelector('.hero').classList.remove('display-none');
+        };
         return {
             resource: urlsSplits[1] || null,
             id: urlsSplits[2] || null,
@@ -20,9 +25,9 @@ const UrlParser = {
     },
 
     _urlCombiner(splitedUrl) {
-        return (splitedUrl.resource ? `/${splitedUrl.resource}` : '/')
-            + (splitedUrl.id ? '/:id' : '')
-            + (splitedUrl.verb ? `/${splitedUrl.verb}` : '');
+        return (splitedUrl.resource ? `/${splitedUrl.resource}` : '/') +
+            (splitedUrl.id ? '/:id' : '') +
+            (splitedUrl.verb ? `/${splitedUrl.verb}` : '');
     },
 };
 

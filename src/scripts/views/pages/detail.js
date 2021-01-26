@@ -6,7 +6,7 @@ import LikeButtonInitiator from '../../utils/like-button-initiator';
 const Detail = {
     async render() {
         return `
-            <a href="#/home" class="back-button"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</a>
+            <a href="/" class="back-button"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</a>
             <div id="restaurant" class="restaurant" style="margin-top: 10px;">
                 <div id="loader-wrapper">
                     <div id="loader"></div>

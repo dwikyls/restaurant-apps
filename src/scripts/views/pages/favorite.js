@@ -4,7 +4,7 @@ import { createRestaurantItemTemplate } from '../templates/template-creator';
 const Like = {
     async render() {
         return `
-      <a href="#/home" class="back-button"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</a>
+      <a href="/" class="back-button"><i class="fa fa-arrow-left" aria-hidden="true"></i> Kembali</a>
       <div class="content">
         <h2 class="content__heading">Your Liked Restaurant</h2>
         <div id="restaurants" class="restaurants">

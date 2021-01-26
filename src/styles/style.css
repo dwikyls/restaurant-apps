@@ -100,6 +100,10 @@ body {
 
 /* HERO */
 
+.display-none {
+    display: none;
+}
+
 .hero img {
     width: 100%;
 }
@@ -277,7 +281,7 @@ main {
 .search-input,
 .add-review textarea,
 .add-review input {
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
     border: 1px solid #e1e4e8;
 }
