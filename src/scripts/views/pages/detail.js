@@ -1,7 +1,8 @@
 import UrlParser from '../../routes/url-parser';
 import RestaurantDbSource from '../../data/restaurantdb-source';
 import { createRestaurantDetailTemplate, createUserReviewTemplate } from '../templates/template-creator';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 
 const Detail = {
     async render() {
@@ -35,8 +36,9 @@ const Detail = {
         restaurantContainer.innerHTML = createRestaurantDetailTemplate(restaurant);
         reviewContainer.innerHTML = createUserReviewTemplate(restaurant);
 
-        LikeButtonInitiator.init({
+        LikeButtonPresenter.init({
             likeButtonContainer: document.querySelector('#likeButtonContainer'),
+            favoriteRestaurants: FavoriteRestaurantIdb,
             restaurant: {
                 id: restaurant.id,
                 name: restaurant.name,
@@ -46,12 +48,12 @@ const Detail = {
                 city: restaurant.city,
             },
         });
-        reviewButton.addEventListener('click', async() => {
+        reviewButton.addEventListener('click', async () => {
             const restaurantId = url.id;
             const reviewerName = document.querySelector('.reviewer-name').value;
             const reviewValue = document.querySelector('.reviewer-text').value;
 
-            if (reviewerName == '' || reviewValue == '') {
+            if (reviewerName === '' || reviewValue === '') {
                 return alert('data tidak lengkap');
             } else {
                 return await RestaurantDbSource.addReview(restaurantId, reviewerName, reviewValue);
