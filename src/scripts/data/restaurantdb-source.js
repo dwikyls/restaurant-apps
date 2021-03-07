@@ -1,4 +1,5 @@
 import API_ENDPOINT from '../globals/api-endpoint';
+import Toast from '../utils/toast';
 
 class RestaurantDbSource {
     static async listRestaurants() {
@@ -34,13 +35,19 @@ class RestaurantDbSource {
                 },
                 body: JSON.stringify(data),
             });
+
             const responseJson = await response.json();
-            alert('berhasil komentar ');
-            location.reload();
-            return responseJson.restaurant;
+
+            Toast.showToast('Berhasil Komentar!');
+
+            let reviews = responseJson.customerReviews;
+            let reviewsLength = reviews.length - 1;
+            let lastReview = reviews[reviewsLength];
+
+            return lastReview;
         } catch (error) {
-            alert('data kurang tepat');
-        };
+            Toast.showToast('Data kurang tepat!');
+        }
     }
 }
 

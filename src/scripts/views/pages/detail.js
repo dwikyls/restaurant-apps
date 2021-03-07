@@ -3,6 +3,7 @@ import RestaurantDbSource from '../../data/restaurantdb-source';
 import { createRestaurantDetailTemplate, createUserReviewTemplate } from '../templates/template-creator';
 import LikeButtonPresenter from '../../utils/like-button-presenter';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+import Toast from '../../utils/toast';
 
 const Detail = {
     async render() {
@@ -21,6 +22,7 @@ const Detail = {
                     <label for="reviewer-text"><i class="fa fa-pencil" aria-hidden="true"></i> Feedback</label>
                     <textarea class="reviewer-text" name="reviewer-text" cols="700" rows="10" placeholder="Your Review"></textarea>
                     <button class="review-button">Add review <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                    <div id="snackbar"></div>
                 </div>
             </div>
             <div id="likeButtonContainer"></div>
@@ -54,9 +56,19 @@ const Detail = {
             const reviewValue = document.querySelector('.reviewer-text').value;
 
             if (reviewerName === '' || reviewValue === '') {
-                return alert('data tidak lengkap');
+                Toast.showToast('Field tidak boleh ada yang kosong');
             } else {
-                return await RestaurantDbSource.addReview(restaurantId, reviewerName, reviewValue);
+                try {
+                    const data = await RestaurantDbSource.addReview(restaurantId, reviewerName, reviewValue);
+                    
+                    reviewContainer.innerHTML += `
+                        <h4>${data.name}</h4>
+                        <p>${data.review}</p>
+                        <p class="text-muted">${data.date}</p>
+                    `;
+                } catch (message) {
+                    Toast.showToast("Gagal mengirim review!");
+                }
             }
         });
     },
