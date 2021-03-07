@@ -7,7 +7,7 @@ Before(({ I }) => {
   I.click(locate('a').inside('.restaurant__title').first());
 });
 
-Scenario('Review with fill all field', async ({ I }) => {
+Scenario('Review with fill all field', ({ I }) => {
   I.seeElement('.add-review');
 
   const reviewText = 'test review menggunakan e2e';
@@ -17,7 +17,7 @@ Scenario('Review with fill all field', async ({ I }) => {
   I.click(locate('.review-button'));
 });
 
-Scenario('Submit button without fill form review', async ({ I }) => {
+Scenario('Submit button without fill form review', ({ I }) => {
   I.seeElement('.add-review');
   I.seeElement('.review-button');
 
